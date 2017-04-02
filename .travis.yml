@@ -1,0 +1,15 @@
+script:
+- |
+  git config user.name "qwang70"
+  git config user.email "qiwen.wang@163.com"
+  git remote remove origin
+  git remote add origin https://$GITHUB_API_KEY@github.com/qwang70/info490-sp17.git > /dev/null 2>&1
+  git remote add upstream https://$GITHUB_API_KEY@github.com/lcdm-uiuc/info490-sp17.wiki.git > /dev/null 2>&1
+  git fetch origin
+  git fetch upstream
+  git merge upstream/master --no-edit
+  git push origin HEAD:master > /dev/null 2>&1
+  git push upstream HEAD:master > /dev/null 2>&1
+env:
+  matrix:
+    secure: FQuaDCEW1qfnbXodUUD2Ib1qXfo195shX42MKbR7hpnkeLiQ3ceBZ9juc8Bz+IhSvC1eq/cxkX4ZCVs2aj35J89EJiwtmlYZObUW26j0ZXr0rG8ncKjSGoeDqqV08uwRwo80+iaxsF4je1GBIJzf39q8D5CQj6xOC3kI+wXK/roPNYylyh8jILG82ZHUugBrepvIfWM+u5haYKfUVULqBevXqlv/tOBW4AUqrCTmLOa1AvcINqnl+n8T50lU5WQ1/ysmO/QRF7BD6HRVuoIRHZwa/TI1JD2Ts97SKOfoX3nOLKuT2jTT5f5vU0b08EjwtNmZq5hWpczvicX+meXAIGiGVOMgq9FIoMenr4hmwzyP6sVkYyYS/C8oYOLOvn780CXi0yWl8uq3WqrG+/Ivyj9CkdwEUkb2Mokm5SNfCWYXd9dNkJEhleScT7ifQZO5iLOzzZkZ3ObnBoDoDvxbcnpmewhby6S0zBfBpltCJaWRRHhQkfPVKrYwamIAyzIjBx9p3YLvzz96a69e7/iLI2FfIFY387t57/KBQZgjh1053zucEmRAV/zt4t5x0BkwO59xe8KpEFaSzepA04wb5eZRVwtkVZEpE9P4h9AfMKGVmGa0yE0oEdHQNIQ/kg+q0y/73G6rQrcSqsfBmX9OcWCTC73Us0om8mnnzxgVk7w=
